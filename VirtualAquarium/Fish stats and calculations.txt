@@ -1,0 +1,227 @@
+Food drain
+Max Hunger
+Movement
+
+Movement Types:
+
+There are three movement types which dictate how likely a fish is to use up its
+movement per turn. These consist of:
+
+	Quick,
+	Balanced and,
+	Slow.
+
+Quick types like to use a lot of their movement per turn and are less likely to
+use little of it.
+
+Balanced types don't mind how they move per turn.
+
+Slow types use little of their movement per turn.
+
+Movement formula:
+
+This will vary per movement type.
+
+Quick types will use none of their movement 1% of the time, and one of their
+movement 5% of the time; the rest will quadratically scale upwards.
+
+Balanced types will have an equal chance of using their movement to any degree.
+
+Slow types will use none of their movement 40% of the time, all of their
+movement 5% of the time, and the rest quadratically scaling backwards.
+
+So, the formula:
+
+	ax^2 + bx + c = chance
+
+	Since the first variable is always 5%, c must be equal to 5. And, since
+	that must be the minimum point of the curve, B must be 0.
+
+	As for A, a nice scaling constant would be 5/movement, so low values of
+	movement scale quickly, and high values scale more slowly.
+
+Therefore, the final formula is:
+
+	(5/Movement)x^2 + 5 = chance
+		
+For quick and slow fish.
+
+For balanced fish, the formula is:
+
+	100/(movement + 1)
+	
+
+
+
+
+Direction Types:
+
+So, each fish perfers to move in different directions. There are three types of 
+these fish:
+
+The air lover, which likes to be close to the surface of the tank.
+
+The drifter, which will happily move in any direction.
+
+The bottom feeder, which likes to be close to the bottom of the tank.
+
+The chances for them moving in any direction differs per type.
+
+According to the list:
+
+	[Up, Left, Right, Down]
+
+Drifters:
+
+	[25, 25, 25, 25]
+
+Air Lovers:
+
+	[(45 / (size of tank / (y position of fish + 1))) + 25, 15, 15, remainder]
+
+Bottom Feeders:
+
+	[Remainder, 15, 15, (45 / (size of tank / (size of tank - y position of fish))) + 25]
+
+
+
+
+
+Point Formula:
+
+(8 - roundUP(Max Hunger / Food Drain)) * (8 - (Movement - (Movement Type Modifier + Movement Speed Modifier))) * Diet Modifer
+
+Diet modifer = 1 if herbivore, 2 if carnivore.
+
+So:
+
+Beta = ((8 - (3 / 1)) * (8 - (4 - (1 + 1))) * 2 = (8 - 3) * (8 - 2) * 2 = 60
+Shark = ((8 - (5 / 2)) * (8 - (3 - (2 + 1))) * 2 = (8 - 3) * (8 - 0) * 2 = 80
+Molly = ((8 - (2 / 1)) * (8 - (5 - (1 + 2))) * 1 = (8 - 2) * (8 - 2) * 1 = 36
+Tetra = ((8 - (3 / 1)) * (8 - (4 - (2 + 1))) * 1 = (8 - 3) * (8 - 1) * 1 = 35
+Catfish = ((8 - (4 / 2)) * (8 - (2 - (1 + 1))) * 1 = (8 - 2) * (8 - 0) * 1 = 48
+Goby = ((8 - (3 / 1)) * (8 - (3 - (1 + 2))) * 1 = (8 - 3) * (8 - 0) * 1 = 40
+
+
+
+
+
+Eating Food Formula: (Based on food falling directly in line with fish)
+
+Chance of ignoring = 10%
+So remaining 90% to be spread over movement.
+So, the formula is:
+
+	We're looking for the step between each value, as you can calculate everything from there.
+	
+	constant = 90, as chance to be a biff = 10%
+	
+	midpoint = 90 / movement + 1
+	side midpoint = (90 - midpoint) / 2
+	
+	position of side midpoint = (movement + 1)/2	
+	step = side midpoint / position of side midpoint
+
+	Then simply iterate over step until midpoint,
+	then back down until step.
+
+	For midpoint,
+	90/5 = 18
+	For remaining chance,
+	90 - 18 = 72
+	Split over 2,
+	72/2 = 36
+	Split over 4,
+	36/4 = 9 for side midpoint.
+	Find step:
+	9 / 2.5 = 3.6
+	
+	3.6
+	7.2
+	10.8
+	14.4
+	18
+	14.4
+	10.8
+	7.2
+	3.6
+
+In programming terms, the later probabilities become equal to:
+
+current step probability / fail chance to this point.
+
+
+
+
+
+Eating Fish Formula: (Based on fish being directly adjacent to each other)
+
+Chance of eating is based on fish:
+
+Beta = 40%
+Shark = 75%
+
+At maximum range, chance to eat fish is a flat 10%. This is a constant and is 
+subject to change.
+
+Fall to 10% over movement:
+
+	Shark: (Movement of 3)
+		
+	75%
+	42.5%
+	10%
+
+	Beta: (Movement of 4)
+
+	40%
+	30%
+	20%
+	10%
+
+Fish do not float past like food, so no need to make percentages correct over time.
+Calculate percentages and then pick the correct one.
+Fish only check to eat once per turn, so static percentages are fine.
+
+So, formula is:
+
+	fish_eat_chance - 10% = difference.
+	difference / (movement - 1) = step
+	
+Example:
+
+	Shark: (Movement of 3)
+	
+	75 - 10 = 65
+	65 / 2 = 32.5
+	Iterate over step (movement - 1) times as furthest movement is already defined as 10%.
+	So:
+		
+		10
+		42.5
+		75
+
+Then reverse manhattan to index the list. So manhattan of 1 (adjacent fish) index
+at movement - manhattan, aka 2 in this case, which is the end of the list.
+
+
+
+
+
+Overfed Formula:
+
+So, a tiny molly with a max belly size of 2 (really 3 as fish can survive on 0
+hunger, it just means they're starving and will die next turn) needs to be able
+to withstand more than the food they come with.
+
+Food * 2 seems reasonable as fish with bigger bellies are bigger and therefore
+have a biggger drain rate, meaning it's not too unreasonable. For example, a shark
+with a belly size of 5 (really 6) would be allowed to have 11 food. It drains at
+a rate of 2 per turn however, so he could only survive 6 turns without food, which
+I think is reasonable as it is the same as a molly. They should die when equal to 
+the double as 0 is an accepted food state, so without double means they actually 
+have double their max hunger in livable states.
+
+So, the formula is simply:
+
+	overfed = if hunger >= (max hunger * 2)

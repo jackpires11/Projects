@@ -1,0 +1,27 @@
+<!-- This file is used to contain all of the fonts and styles used by the in-game text. -->
+<!-- variables needed include font style, colour and text size. -->
+<strings>
+
+	<!-- Used to display the amount of owned pearls. -->
+	<string id="PEARLS">
+		<font>"ebrima"</font> 
+		<size>30</size>
+		<colour>purple</colour>
+		<location>15,15</location>
+		<text>098172433653194117</text>
+	</string>
+
+	<!-- Used to display the user's score. -->
+	<string id="SCORE">
+		<font>ebrima"</font>
+		<size>64</size>
+		<colour>black</colour>
+		<location>300,15</location>
+		<text>0</text>
+	</string>
+
+</strings>
+
+			
+
+	
