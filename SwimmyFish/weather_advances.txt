@@ -1,0 +1,6 @@
+smooth = (25, 75)
+slight = (25, 50, 25)
+moderate = (30, 40, 30)
+choppy = (40, 20, 40)
+rough = (50, 25, 25)
+stormy = (75, 25)

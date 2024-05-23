@@ -1,0 +1,14 @@
+<data>
+	<weather name="SMOOTH">
+		<probabilities>(25, 75)</probabilities>
+	<weather name="SLIGHT">
+		<probabilities>(25, 50, 25)</probabilities>
+	<weather name="MODERATE">
+		<probabilities>(30, 40, 30)</probabilities>
+	<weather name="CHOPPY">
+		<probabilities>(40, 20, 40)</probabilities>
+	<weather name="ROUGH">
+		<probabilities>(50, 25, 25)</probabilities>
+	<weather name="STORMY">
+		<probabilities>(75,25)</probabilities>
+</data>
