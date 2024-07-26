@@ -1,0 +1,48 @@
+Explosive Alchemy? Mod idea:
+(Particle Physics???)
+
+-Should be late in the game.
+-Start with directed beams, explosions come as a consequence of more powerful beams? Concentrated?
+
+Tiered progression:
+
+Start by capturing some form of power from the natural world (beams in the sky)
+Particle Lightning Rod?
+Direct those beams for power? Effects?
+Later on, you can progress to making your own power (concentrated beams - explosions)
+Beams can collide - makes an explosion, biproduct of other beams??? Useful???? Particles with different effects.
+
+
+Particles can be changed to perform various effects.
+Can have groups of particles for multiple effects.
+You can convert any particle to any other, but it should be difficult, especially for stronger effects.
+Particles are found within the world, at certain structures. Different structures have particles with varying effects. (Particle Dowsing Rods? A lens to  view them through (with XRAY powers?))
+
+Example:
+
+A particle that has a heat effect. You need to provide something to give it power to heat. Could provide a system for looping around furnaces to power them - needs charging.
+Potential optimisations for calculations - pre-calculate the route a particle would take and then just display where it would be at x time.
+
+Effects:
+A system of opposites? Maybe polarities?
+
+Heat/Cold
+Push/Pull
+Life/Death???Hydration/Drying???Accelerate/Decelerate???
+Light/Dark?Colour/Lack of?
+
+Plan:
+
+Particles have a frequency and a polarity;
+A graph exists for every particle type, wherein a frequenecy and polarity at verious values cause an effect based on that type.
+Waves introduce a third property of incoherence. Wherein how well the individual particles within the beam align with the beam type, denotes how big or small the beam appears
+on the graph.
+A smaller, more concentrated beam, allows for more powerful applications of the effects on the graph, however, a less concentrated beam, allows for one which could potentially
+contain multiple effects, albeit with a lesser strength.
+How much of the beam is within the area of the effect denotes the strength of said effect; 100% inside equals the maximum strength - easily weighted.
+Powerful effects are likely to be small and difficult to reach within the graph, meaning it is possible to trigger them with a weakened effect, but more concentrated beams are 
+needed to use them effectively.
+Weaker effects are larger and more close to the centre of the graph, whereas more powerful effects are smaller and towards the edges.
+Manipulating the state of a particle (its frequency and polarity) can be done using machinery (as of yet undecided) which at first, is innacurate and limited in how far it can
+manipulate the state of a particle, therefore making more powerful effects unobtainable/very difficult.
+Potential later machinery could combine beams (align them on the same path, but they remain separate), which may interact with one another whenever passing through lenses.
