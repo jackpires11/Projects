@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="400"
+   height="400"
+   viewBox="0 0 105.83333 105.83333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="Connected_Outer_Circles_Alternate_Reversed.svg"
+   inkscape:export-filename="Connected_Outer_Circles_Alternate_Reversed.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.5233586"
+     inkscape:cx="151.63862"
+     inkscape:cy="214.98549"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;stroke:#204021;stroke-width:0.233;stroke-linecap:round"
+       id="rect1"
+       width="105.83333"
+       height="105.83333"
+       x="0"
+       y="0" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:25.5143;stroke-linecap:round"
+       id="path2-3-4-9-1-0"
+       cx="52.916668"
+       cy="52.916668"
+       r="52.91666" />
+    <circle
+       style="fill:#f4dd3e;fill-opacity:1;stroke:none;stroke-width:22.4138;stroke-linecap:round"
+       id="path2-3-4-9-1-0-3"
+       cx="52.916668"
+       cy="52.916668"
+       r="46.486248" />
+    <circle
+       style="fill:#ef9415;fill-opacity:1;stroke:none;stroke-width:19.3134;stroke-linecap:round"
+       id="path2-3-4-9-1-0-3-5"
+       cx="52.916668"
+       cy="52.916668"
+       r="40.055836" />
+    <circle
+       style="fill:#f53d3d;fill-opacity:1;stroke:none;stroke-width:16.2128;stroke-linecap:round"
+       id="path2-3-4-9-1-0-3-5-2"
+       cx="52.916668"
+       cy="52.916668"
+       r="33.625427" />
+    <circle
+       style="fill:#0dc46c;fill-opacity:1;stroke:none;stroke-width:13.1124;stroke-linecap:round"
+       id="path2-3-4-9-1-0-3-5-2-1"
+       cx="52.916668"
+       cy="52.916668"
+       r="27.195015" />
+    <circle
+       style="fill:#0bb4da;fill-opacity:1;stroke:none;stroke-width:10.0119;stroke-linecap:round"
+       id="path2-3-4-9-1-0-3-5-2-1-7"
+       cx="52.916668"
+       cy="52.916668"
+       r="20.764603" />
+    <circle
+       style="fill:#664b72;fill-opacity:1;stroke:none;stroke-width:6.91139;stroke-linecap:round"
+       id="path2-3-4-9-1-0-3-5-2-1-7-5"
+       cx="52.916668"
+       cy="52.916668"
+       r="14.334191" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:Georgia;-inkscape-font-specification:Georgia;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0501374;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="15.929087"
+       y="73.39666"
+       id="text1"
+       transform="scale(1.0544454,0.94836585)"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:Georgia;-inkscape-font-specification:Georgia;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0501374;stroke-dasharray:none;stroke-opacity:1"
+         x="15.929087"
+         y="73.39666">TR</tspan></text>
+  </g>
+</svg>
