@@ -1,0 +1,57 @@
+Formula for calculating the total of the series of double inputs:
+
+Example:
+
+0 - 100
+
+11, 22, 33, 44, 55, 66, 77, 88, 99
+
+110 + 110 + 110 + 110 + 110 + 33
+
+Example 2:
+
+0 - 10000
+
+11, 22, 33, 44, 55, 66, 77, 88, 99, 1010, 1111, 1212... 9898, 9999
+
+10010 + 9920... it's inconsistent and the two series have differing amounts of inputs.
+
+Better to split into two separate series:
+
+10 - 99 and 1000 - 9999:
+
+11, 22... 88, 99
+
+110 * 4.5
+
+1010, 1111... 9898, 9999
+
+11009 * 45
+
+Example 3:
+
+10 - 99 vs 1010 - 9999
+
+109 * 45 vs 11009 * 45
+
+4905 vs 495405
+
+101 times greater.
+
+Conversion between seems silly as I'd convert down to convert up;
+leaving it as is seems more efficient.
+
+Formula:
+-> (n[0] + n[n-1]) * (n / 2)
+
+To Do:
+
+Calculate lower and upper boundaries of provided ranges. (done)
+
+Calculate lower and upper boundaries of repeating numbers within the range. (done)
+
+Split the boundaries based on length of numbers within. (done)
+
+Calculate the formula for each length of number within the range. (done)
+
+Add up all of the calculated values. (done)

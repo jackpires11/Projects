@@ -1,0 +1,36 @@
+Problem:
+
+Solve an input of vertical math problems, read in columns from right to left, then sum together the answers for the final answer.
+
+Current solution:
+
+-Read and parse inputs, by blank spaces, into lists by line. (done)
+
+-Run through the list of lists by index, starting from the end, performing the
+associated mathematical operation on all numbers of the matching index. (done)
+
+-As you go, sum together the answers into one solution. (done)
+
+Plan:
+
+(No
+-Calculate how many numbers per row.
+
+-Parse numbers, including their empty spaces, based on how wide the longest number
+can be. Vertical alignment needs to be conserved.
+
+(max width of number * amount of numbers) + empty space = len(row) - 1
+(x * y) + y - 1 = len(row) - 1
+(x * y) = len(row) - y
+x = (len(row) - y) / y
+)No
+WON'T WORK. The widths of vertical columns varies, so a flat formula won't work.
+Need to dynamically calculate the widths of vertical columns and update accordingly.
+
+-Edit the parse function to instead take all of the rows, un-parsed, at once. Separate vertically by finding columns of blank space.
+
+-Check through the numbers character by character when running through the columns. Concatenate them into a list of strings, per position, ignoring empty space, then perform 
+the mathematical operation on them when all strings have been made.
+
+
+

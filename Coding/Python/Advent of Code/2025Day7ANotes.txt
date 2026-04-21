@@ -1,0 +1,17 @@
+Problem:
+
+Calculate how many times a straight line running vertically down will be split
+by obstacles.
+
+Plan:
+
+Recursion looks sound at first glance, but calculating and accounting for overlaps will be difficult. However, recursion will likely help greatly in solving part 2; it's robust and efficient.
+
+If I track where I have traversed the grid (replace blank spaces with "|") and then do a
+check for overlap when recursing through (check if a space is "|", return()), we can add 1 to our split counter when splitting and easily avoid overlap.
+
+-Read in problem input
+
+-Enter recursive function with row 1. Locate S, make a note of the index. Call recursive function with row + 1, index.
+
+-Check row at index for split. If split, call row at index -1 and follow up with index +1. Increase split count. If not split, replace with "|", call function with row +1, index.

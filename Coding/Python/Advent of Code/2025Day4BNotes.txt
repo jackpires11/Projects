@@ -1,0 +1,19 @@
+Problem:
+
+Given a grid x, y, with positions marked @; find how many @ positions contain less than 4 adjacent positions marked @. (Diagonal counts as adjacent)
+
+Current Solution:
+
+-read inputs into a list of rows.
+
+-Loop through each row and identify each accessable piece of paper.
+
+-Output how many can be accessed.
+
+Plan:
+
+-Read all lines in the input file into one list of strings.
+
+-Run a loop through each line of the input file; if the position is marked @, run a loop from -1 to 1 on x and -1 to 1 on y for the adjacent spots (checking for edge cases, so as to not index -1, 1 beyond the list or 0, 0; the position itself. In fact, no. Do index the position itself. However the position will always be an @, so simply check for less than 5 instead.) and increase a counter each time an @ is encountered at that position.
+
+-Increase how many pieces of paper can be accessed by 1 if the amount of adjacent @s is less than 5.

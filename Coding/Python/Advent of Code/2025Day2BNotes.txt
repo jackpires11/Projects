@@ -1,0 +1,149 @@
+Any number of repeating digits.
+
+Current implementation:
+
+Opens file, reads in inputs.
+
+Obtains range. Parses into upper and lower.
+
+Calculates lower bound for invalid ID.
+
+Calculate upper bound for invalid ID.
+
+If not same length; increase length and repeat.
+
+Total all invalid IDs in range.
+
+Plan:
+
+Calculate factors of length. (done)
+
+Remove factors of factors. (done)
+
+Calculate factors of these factors; put them in a dictionary with a value of how many times they are a factor of the factors. (done)
+
+Total the invalid IDs of the original factors of factors. (done)
+
+Take away the totals of invalid IDs going back through the counted list of factors. Reduce the count of factors which are factors of the currently being checked factor. If it is less than 1 when getting to it, add it's total until it's back to 1; also increment its factors.
+Break the start of the number into a length of the smaller divisor. (Replace the slices by a provided variable). (done)
+
+Calculate ranges for new lengths. (done)
+
+Increment number until outside of range, adding up totals. (done)
+
+Problems:
+
+Counting a number twice. Could make a list of all counted valid IDs? Would be slow, however.
+
+Repeated numbers:
+
+2 -> 2 2 2 2 2 2
+22 -> 22 22 22
+222 -> 222 222
+
+202 -> 202202
+21 -> 21 21 21 21
+
+2121 -> 2121 2121	212121 -> 212121 212121
+
+21212121
+30000000
+29992999
+
+All the same! If number is repeated; skip? Should avoid invalid IDs. Basically... If there
+are repeated IDs within the Id... skip it! Should be simple:
+
+Calculate divisors for checking value
+
+while i * i <= len(boundary) #Checks up to n^2 as it needs go no higher.
+    If boundary[:divisor] * (len(boundary) // divisor) == boundary:
+        continue.
+
+Maybe we can still use the formula to make it much quicker...
+
+If we calculate the prime factors of the length of the repeated numbers being checked,
+we can find the IDs which would be counted twice. We can then use the formula, and take
+away these double counted values. This should speed up the calculation by at least 100x.
+
+ACTUALLY, SCRAP THAT! ALL DIVISORS WHICH ARE A MULTIPLE OF OTHER DIVISORS, WILL INCLUDE ALL
+OF THE INVALID IDs IN THEIR FACTOR. THUS, WE CAN SIMPLY CHECK OUR FACTORS TO MAKE SURE EACH
+ARE INDIVISIBLE BY THE OTHERS.
+
+This won't fully work. Shared factors between divisors will also cause cross-over.
+
+In order to counter this, we can make a list of factors. If a factor of the currently
+being checked divisor is already in the list, we can minus the cross-over of that factor.
+We will also need to apply the factor of factors rule here, so we aren't removing invalid
+IDs twice.
+
+Thinking about it, this should be fairly simple. We can calculate the total of the range,
+then re-run the total function for slices of said checked repeated ID length with already checked factors and remove it from the total.
+
+If we had the factors of 60: (excluding n (60 in this case))
+
+1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30
+
+Remove factors of factors:
+
+12, 20, 30
+
+Calculate factors of factors as totals are calculated: (excluding n)
+
+1, 2, 3, 4, 6 (12)
+
+factor of factors:
+
+4, 6 (12)
+(1, 2 and 3 are all factors of 6 and so covered by it.)
+
+current factors:
+
+(4, 6)
+
+next:
+
+1, 2, 4, 5, 10 (20)
+
+factor of factors:
+
+4, 5, 10 (1 and 2 are factors of 4 and so removed. The total of 4 will be taken from the total as it has already been included.)
+
+current factors:
+
+(4, 5, 6, 10)
+
+next:
+
+1, 2, 3, 5, 6, 10, 15 (30)
+
+factor of factors:
+
+(6, 10, 15) (1, 2 and 3 are factors of 6; 5 is a factor of 10 and 15)(The totals of 6 and 10 will be removed as they are already in current factors).
+
+current factors:
+
+(4, 5, 6, 10, 15)
+
+Upon further thought; instead of removing factors to re-calculate factors (which seemed to fail in my example anyway due to 4, 6 and 10 all sharing factors), we can instead calculate the list of all the factors of the length of the number currently being checked. Then, we can go through that list, from lowest to highest, and check if that is a factor of any later numbers. If it is, we count how many times it is a factor. If it is just once, we can simply ignore the total as it is already calculated later. If it is included more than once, we can remove it's total for how many times over once it is a factor of another factor:
+
+-Calculate factors of length
+-For each, count how many times it is a factor of other factors.
+-If it is not a factor of the other factors; add its total value to the total of invalid IDs.
+-If it is a factor once, ignore it
+-If it is a factor more than once, minus its total * the amount of times it is a factor more than once.
+
+This also does not work due to shared factors between factors:
+
+-Calculate factors
+-Remove factors of factors
+-Calculate factors of these factors; put them in a dictionary with a value of how many times they are a factor of the factors.
+-Total the invalid IDs of the original factors of factors
+-Take away the totals of invalid IDs going back through the counted list of factors. Reduce the count of factors which are factors of the currently being checked factor. If it is less than 1 when getting to it, add it's total until it's back to 1; also increment its factors.
+
+This should be less complicated to implement than it seems; 2 functions are required:
+
+Calculate factors
+Remove factors of factors
+
+The first function simply calculates the factors of a given number.
+The second function takes in a list of numbers and returns the numbers which weren't a multiple of any others.

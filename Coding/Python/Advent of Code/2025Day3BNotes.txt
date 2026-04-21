@@ -1,0 +1,7 @@
+Plan:
+
+-Read inputs line by line.
+
+-Iterate through the bank from 9 down to 1, n + 1 times; excluding the final n numbers (where n is 12 - the current number being added).
+
+-Repeat from the index found onward, then concatenate all found valid numbers and add to your answer to obtain your final joltage.

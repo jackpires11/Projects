@@ -1,0 +1,19 @@
+Problem:
+
+Count how many IDs in a list fall within a range of valid IDs
+
+Current Solution:
+
+Plan:
+
+-Process the ranges into a list
+
+-Sort the list by lower bound
+
+-Condense the list accounting for overlap
+
+-Process the IDs to be checked into a list
+
+-Check those IDs against the sorted list of ranges.
+
+-Output the total of valid IDs.

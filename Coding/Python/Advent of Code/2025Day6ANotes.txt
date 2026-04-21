@@ -1,0 +1,16 @@
+Problem:
+
+Solve an input of vertical math problems, read in columns from right to left, then sum together the answers for the final answer.
+
+Current solution:
+
+-Read and parse inputs, by blank spaces, into lists by line. (done)
+
+-Run through the list of lists by index, starting from the end, performing the
+associated mathematical operation on all numbers of the matching index. (done)
+
+-As you go, sum together the answers into one solution. (done)
+
+Plan:
+
+-Check through the number character by character when running through the columns. Concatenate them into a list of strings, per position, then perform the mathematical operation on them when all strings have been made.

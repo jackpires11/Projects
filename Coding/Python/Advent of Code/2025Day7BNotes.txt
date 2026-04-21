@@ -1,0 +1,23 @@
+Problem:
+
+Calculate how many possible routes through obstacles a downward moving particle could take.
+
+Plan:
+
+Recursion is very solid. Can check until the end and then quickly recurse back up and take alternate routes.
+
+We no longer care about tracking /where/ we have been. We simply need to follow it all the way through back up and down.
+
+-Remove all beam placements and checking.
+
+-Change count placement to when reaching the end of the rows.
+
+
+
+It would be much more efficient to check row by row, note overlaps and quantities, and then multiply the counter on split by overlap. Can create this as an alternate solution. I need a way to represent a beam as a multiple, however. Could check one beam at a time, storing overlap as a list from left to right of the current beams.
+
+-Check the current row for splits at incoming beam positions.
+
+-Update overlaps in the list - moving left, retain previous overlap count; moving right, create new overlap count inserted after the previous one.
+
+-Run through the final overlap list and add up for the final answer.
